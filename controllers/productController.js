@@ -137,10 +137,31 @@ const getProduct = async(req, res) => {
         data: products
     });
 }
+
+const getProductNew = async(req, res) => {
+
+    const num_take = 5;
+
+    const products = await Product.findAll({
+        attributes: ['id','name', 'price','photo','description'],
+        limit: num_take,
+        order: [
+            ['createdAt', 'DESC'],
+        ]
+    });
+
+    
+    return res.status(200).json({
+        code: 200,
+        message: "success",
+        data: products
+    });
+}
 module.exports = {
     insertProduct,
     updateProduct,
     findProduct,
     deleteProduct,
-    getProduct
+    getProduct,
+    getProductNew
 }
