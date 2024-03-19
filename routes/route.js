@@ -13,7 +13,8 @@ const {
     updateProduct,
     findProduct,
     deleteProduct,
-    getProduct
+    getProduct,
+    getProductNew
 } = require('../controllers/productController');
 
 router.post('/user/create', [validateUser, validate], create);
@@ -26,5 +27,6 @@ router.put('/product/update/:id',[validateDetail, validate], updateProduct)
 router.get('/product/find/:id', findProduct)
 router.delete('/product/delete/:id', deleteProduct)
 router.get('/product/get', getProduct)
+router.get('/product-new/get', getProductNew)
 
 module.exports = router;
